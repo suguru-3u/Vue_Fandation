@@ -1,49 +1,85 @@
-// const vm =new Vue({
-//   data: {
-//   	message: 'Hello word'
-//   }
-// })
-//
-// vm.$mount('#app')
+// // // const vm =new Vue({
+// // //   data: {
+// // //   	message: 'Hello word'
+// // //   }
+// // // })
+// // //
+// // // vm.$mount('#app')
+// // // const vm = new Vue({
+// // // 	el: '#app',
+// // //   data(){
+// // //   	return {
+// // //     	message: 'Halleo'
+// // //     }
+// // //   }
+// // // })
+// // //
+// // // window.vm = vm
+// // //
+// // //  vm.$watch(function(){
+// // // 	 return this.message
+// // //  },function(message){
+// // // 	 console.log('変更されました!' + message)
+// // //  })
+// // const vm = new Vue({
+// // 	el: '#app',
+// //   data(){
+// //   	return {
+// //     	numbers: [],
+// // 			total_num: 0
+// // 		}
+// //    },
+// // 	watch: {
+// // 		numbers(value){
+// // 			this.total_num = 0
+// // 			this.numbers.forEach(number => {
+// // 				this.total_num += number
+// // 			})
+// // 		}
+// // 	}
+// // })
+// //
+// //
+// // window.vm = vm
+// //
+// //  // vm.$watch(function(){
+// // 	//  return this.message
+// //  // },function(message){
+// // 	//  console.log('変更されました!' + message)
+// //  // })
 // const vm = new Vue({
 // 	el: '#app',
 //   data(){
 //   	return {
-//     	message: 'Halleo'
-//     }
-//   }
+//     	message: 'hello'
+// 		}
+//    }
 // })
 //
 // window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	message: 'hello'
+// 		}
+//    }
+// })
 //
-//  vm.$watch(function(){
-// 	 return this.message
-//  },function(message){
-// 	 console.log('変更されました!' + message)
-//  })
+// window.vm = vm
 const vm = new Vue({
 	el: '#app',
   data(){
   	return {
-    	numbers: [],
-			total_num: 0
+    	sum: 300000
 		}
-   },
-	watch: {
-		numbers(value){
-			this.total_num = 0
-			this.numbers.forEach(number => {
-				this.total_num += number
-			})
-		}
-	}
+  },
+  filters:{
+  	numberWithDelimiter(value){
+    if (!value) return '0'
+    return value.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,')
+    }
+  }
 })
 
-
 window.vm = vm
-
- // vm.$watch(function(){
-	//  return this.message
- // },function(message){
-	//  console.log('変更されました!' + message)
- // })
