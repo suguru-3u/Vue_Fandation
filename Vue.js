@@ -67,19 +67,34 @@
 // })
 //
 // window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	sum: 300000
+// 		}
+//   },
+//   filters:{
+//   	numberWithDelimiter(value){
+//     if (!value) return '0'
+//     return value.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,')
+//     }
+//   }
+// })
+//
+// window.vm = vm
 const vm = new Vue({
 	el: '#app',
   data(){
   	return {
-    	sum: 300000
+    	button: true
 		}
   },
-  filters:{
-  	numberWithDelimiter(value){
-    if (!value) return '0'
-    return value.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,')
-    }
-  }
+	computed:{
+		buttons(){
+			return this.button ? '無効':'有効'
+		}
+	}
 })
 
 window.vm = vm
