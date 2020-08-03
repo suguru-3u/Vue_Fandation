@@ -83,18 +83,28 @@
 // })
 //
 // window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	button: true
+// 		}
+//   },
+// 	computed:{
+// 		button(){
+// 			return this.button ? '無効':'有効'
+// 		}
+// 	}
+// })
+//
+// window.vm = vm
 const vm = new Vue({
 	el: '#app',
   data(){
   	return {
-    	button: true
+    	reverse: false
 		}
-  },
-	computed:{
-		buttons(){
-			return this.button ? '無効':'有効'
-		}
-	}
+  }
 })
 
 window.vm = vm

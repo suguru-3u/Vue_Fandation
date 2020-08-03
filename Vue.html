@@ -8,9 +8,15 @@
 <script src="https://unpkg.com/vue@2.5.21">
 </script>
 <div id="app">
-  <button :disabled='button'>
-    {{buttons}}
-  </botton>
+  <!-- <button v-on:click='click'>
+    ボタン
+  </button> -->
+  <label>
+    <input type="checkbox" v-model='reverse'>予約する
+  </label>
+  <div v-if='reverse'>
+    予約日:<input type="date">
+  </div>
 </div>
 </body>
 <script src="Vue.js"></script>
