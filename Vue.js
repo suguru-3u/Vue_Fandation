@@ -67,19 +67,70 @@
 // })
 //
 // window.vm = vm
-const vm = new Vue({
-	el: '#app',
-  data(){
-  	return {
-    	sum: 300000
-		}
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	sum: 300000
+// 		}
+//   },
+//   filters:{
+//   	numberWithDelimiter(value){
+//     if (!value) return '0'
+//     return value.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,')
+//     }
+//   }
+// })
+//
+// window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	button: true
+// 		}
+//   },
+// 	computed:{
+// 		button(){
+// 			return this.button ? '無効':'有効'
+// 		}
+// 	}
+// })
+//
+// window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	message: 'Hello'
+// 		}
+//   }
+// })
+//
+// window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	message: 'Hello'
+// 		}
+//   }
+// })
+//
+// window.vm = vm
+new Vue({
+  el: "#app",
+  data: {
+    todos: [
+      { text: "Learn JavaScript", done: false },
+      { text: "Learn Vue", done: false },
+      { text: "Play around in JSFiddle", done: true },
+      { text: "Build something awesome", done: true }
+    ]
   },
-  filters:{
-  	numberWithDelimiter(value){
-    if (!value) return '0'
-    return value.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,')
+  methods: {
+  	toggle: function(todo){
+    	todo.done = !todo.done
     }
   }
 })
-
-window.vm = vm
