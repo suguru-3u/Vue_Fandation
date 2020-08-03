@@ -98,13 +98,39 @@
 // })
 //
 // window.vm = vm
-const vm = new Vue({
-	el: '#app',
-  data(){
-  	return {
-    	reverse: false
-		}
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	message: 'Hello'
+// 		}
+//   }
+// })
+//
+// window.vm = vm
+// const vm = new Vue({
+// 	el: '#app',
+//   data(){
+//   	return {
+//     	message: 'Hello'
+// 		}
+//   }
+// })
+//
+// window.vm = vm
+new Vue({
+  el: "#app",
+  data: {
+    todos: [
+      { text: "Learn JavaScript", done: false },
+      { text: "Learn Vue", done: false },
+      { text: "Play around in JSFiddle", done: true },
+      { text: "Build something awesome", done: true }
+    ]
+  },
+  methods: {
+  	toggle: function(todo){
+    	todo.done = !todo.done
+    }
   }
 })
-
-window.vm = vm
