@@ -118,19 +118,40 @@
 // })
 //
 // window.vm = vm
-new Vue({
-  el: "#app",
-  data: {
-    todos: [
-      { text: "Learn JavaScript", done: false },
-      { text: "Learn Vue", done: false },
-      { text: "Play around in JSFiddle", done: true },
-      { text: "Build something awesome", done: true }
-    ]
-  },
-  methods: {
-  	toggle: function(todo){
-    	todo.done = !todo.done
+// new Vue({
+//   el: "#app",
+//   data: {
+//     todos: [
+//       { text: "Learn JavaScript", done: false },
+//       { text: "Learn Vue", done: false },
+//       { text: "Play around in JSFiddle", done: true },
+//       { text: "Build something awesome", done: true }
+//     ]
+//   },
+//   methods: {
+//   	toggle: function(todo){
+//     	todo.done = !todo.done
+//     }
+//   }
+// })
+Vue.component('user-list',{
+	data(){
+  	return{
+    	users:[
+      {id:1,name:'ユーザー1'},
+      {id:2,name:'ユーザー2'},
+      {id:3,name:'ユーザー3'}
+      ]
     }
-  }
+  },
+  template:`
+  	<ul>
+    	<li v-for="user in users"  :key="user.id">
+      {{user.name}}
+      </li>
+    </ul>
+    `
+})
+const vm = new Vue({
+	el:'#app'
 })
