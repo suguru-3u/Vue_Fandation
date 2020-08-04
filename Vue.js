@@ -134,24 +134,58 @@
 //     }
 //   }
 // })
-Vue.component('user-list',{
+const UserTiltle = {
+  template:`
+    <h2>ユーザーリスト</h2>
+  `
+}
+
+const Userditail = {
+  props:{
+    user:{
+      type:Object
+    }
+  },
+  template:`
+    <div>
+      <h2>選択中のユーザー</h2>
+      {{user.name}}
+    </div>
+  `
+}
+
+const UserList = {
+  components:{
+    'user-title':UserTiltle,
+    'user-detail':Userditail
+  },
 	data(){
   	return{
     	users:[
       {id:1,name:'ユーザー1'},
       {id:2,name:'ユーザー2'},
       {id:3,name:'ユーザー3'}
-      ]
+      ],
+      select_user:{
+
+      }
     }
   },
   template:`
-  	<ul>
-    	<li v-for="user in users"  :key="user.id">
-      {{user.name}}
-      </li>
-    </ul>
+    <div>
+      <user-title></user-title>
+    	<ul>
+      	<li v-for="user in users"  :key="user.id" @click="select_user =  user">
+        {{user.name}}
+        </li>
+      </ul>
+      <user-detail :user='select_user'></user-detail>
+    </div>
     `
-})
+}
 const vm = new Vue({
-	el:'#app'
+	el:'#app',
+  components:{
+    'user-list':UserList
+  }
 })
